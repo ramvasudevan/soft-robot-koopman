@@ -7,7 +7,7 @@ function [ x , results ] = quadprog_gurobi( H, f, A, b )
 % %YOU MUST REMOVE THIS !!!!!!!!!!!!!! DONT FORGET!!!!!!!!!!!!!!!!!!!!!!!!!
 % H = H + eye( size(H,1) ) * 1e-6;
 
-model.Q = sparse(0.5*H);  % removed 0.5 on 2019-08-26 (added back on 2019-10-10)
+model.Q = sparse(H);  % removed 0.5 on 2020-02-25 (was added on 2019-10-10)
 model.A = sparse(A);
 model.obj = f';
 model.rhs = b';
