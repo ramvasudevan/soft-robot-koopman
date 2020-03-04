@@ -896,9 +896,9 @@ classdef ksysid
             end
             
             % Solve the quadratic program
-%             [x , results] = quadprog_gurobi( H , f , Aq , bq );       % use gurobi to solve
+%             [x , results] = quadprog_gurobi( 0.5*H , f , Aq , bq );       % use gurobi to solve
             options = optimoptions('quadprog', 'Display', 'iter');
-            [ x, fval, exitflag ] = quadprog(H, f, Aq, bq, [], [], [], [], [],options);      % use matlab to solve
+            [ x, fval, exitflag ] = quadprog( H, f, Aq, bq, [], [], [], [], [], options );      % use matlab to solve
             
             % Recover Uvec from the optimization variable
             xout = M * x;
